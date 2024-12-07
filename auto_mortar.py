@@ -59,8 +59,7 @@ def capture_ocr_region(left, top, width, height, debug=False):
 
 def format_coordinate(coord_text):
 
-    if coord_text and coord_text[0] == "1":
-        coord_text = "I" + coord_text[1:]
+
     # Ajustement de la regex pour capturer différentes variations
     pattern = r"([A-Z])\s*(\d+)\s*[-–]\s*(\d+)\s*[-–]\s*(\d+)"
     match = re.search(pattern, coord_text)
@@ -631,18 +630,15 @@ class MainWindow(QMainWindow):
 #####################################
 def toggle_overlay():
     global main_window, overlay_visible
-
-    # Vérifier si la fenêtre principale est définie et l'overlay existe
+    print("Touche Delete pressée.")
     if main_window and main_window.overlay:
-        print(f"Touche Delete pressée. État actuel de l'overlay_visible : {overlay_visible}")
-        
-        # Bascule uniquement l'affichage de l'overlay
+        print(f"État actuel de l'overlay_visible : {overlay_visible}")
         if overlay_visible:
-            main_window.overlay.hide()  # Cacher uniquement l'overlay
+            main_window.overlay.hide()
             overlay_visible = False
             print("Overlay désactivé.")
         else:
-            main_window.overlay.show()  # Afficher uniquement l'overlay
+            main_window.overlay.show()
             overlay_visible = True
             print("Overlay activé.")
     else:
