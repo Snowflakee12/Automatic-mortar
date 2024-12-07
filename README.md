@@ -15,5 +15,5 @@
 4. **Comment utiliser :
    - dans le terminal :
      ```bash
-     python auto_mortart
+     python auto_mortar
      ``
